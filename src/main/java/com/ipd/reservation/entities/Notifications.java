@@ -15,7 +15,7 @@ import javax.persistence.TemporalType;
 
 
 @Entity
-@Table(name="my_notifications")
+@Table(name="notifications")
 public class Notifications implements Serializable {
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,7 +26,7 @@ public class Notifications implements Serializable {
     @Temporal(TemporalType.TIMESTAMP)
     private Date dateNotification;
     
-    private boolean read;
+    private boolean readNotif;
     
     @ManyToOne
     @JoinColumn(name = "reservation_id")
@@ -36,11 +36,11 @@ public class Notifications implements Serializable {
 		super();
 	}
 	
-	public Notifications(String message, Date dateNotification, boolean read, Reservation reservation) {
+	public Notifications(String message, Date dateNotification, boolean readreadNotif, Reservation reservation) {
 		super();
 		this.message = message;
 		this.dateNotification = dateNotification;
-		this.read = read;
+		this.readNotif = readNotif;
 		this.reservation = reservation;
 	}
 
@@ -51,12 +51,12 @@ public class Notifications implements Serializable {
 		this.reservation = reservation;
 	}
 
-	public Notifications(Long id, String message, Date dateNotification, boolean read, Reservation reservation) {
+	public Notifications(Long id, String message, Date dateNotification, boolean readNotif, Reservation reservation) {
 		super();
 		this.id = id;
 		this.message = message;
 		this.dateNotification = dateNotification;
-		this.read = read;
+		this.readNotif = readNotif;
 		this.reservation = reservation;
 	}
 
@@ -92,12 +92,14 @@ public class Notifications implements Serializable {
 		this.reservation = reservation;
 	}
 
-	public boolean isRead() {
-		return read;
+	public boolean isReadNotif() {
+		return readNotif;
 	}
 
-	public void setRead(boolean read) {
-		this.read = read;
+	public void setReadNotif(boolean readNotif) {
+		this.readNotif = readNotif;
 	}
+
+	
 
 }

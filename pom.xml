@@ -101,11 +101,10 @@
 			<scope>provided</scope>
 		</dependency>
             -->
-		<!--<dependency>
+		<dependency>
 			<groupId>org.mapstruct</groupId>
 			<artifactId>mapstruct</artifactId>
-			<version>1.5.2.Final</version> < Assurez-vous d'utiliser une
-			version compatible
+			<version>1.5.2.Final</version>
 		</dependency>
 
 		<dependency>
@@ -113,7 +112,7 @@
 			<artifactId>mapstruct-processor</artifactId>
 			<version>1.5.2.Final</version>
 			<scope>provided</scope>
-		</dependency> -->
+		</dependency> 
 
 
 		<dependency>
