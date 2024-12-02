@@ -6,6 +6,7 @@ import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -30,7 +31,8 @@ public class Reservation implements Serializable{
 
     private String status;
    
-    @OneToMany(mappedBy = "reservation", cascade = CascadeType.ALL)
+   // @OneToMany(mappedBy = "reservation", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "reservation", fetch = FetchType.EAGER)
     private List<Notifications> notifications;
     
     @ManyToOne

@@ -3,6 +3,7 @@ package com.ipd.reservation.service;
 import java.util.List;
 
 import javax.persistence.EntityManager;
+import javax.transaction.Transactional;
 
 import org.mapstruct.factory.Mappers;
 
@@ -99,6 +100,11 @@ public class ReservationService implements IReservationService {
 
 	@Override
 	public void updateReservation(ReservationDto reservationDto) {
+		ReservationDto existingEnDto = reservationMapper
+				.toDto(reservationDao.get(reservationDto.getIdDto()));
+	    if (existingEnDto == null) {
+	        throw new IllegalArgumentException("ReservationDto not found for ID: " + reservationDto.getIdDto());
+	    }
 		reservationDao.updateReservation(reservationMapper.toEntity(reservationDto));
 	}
 
@@ -117,6 +123,7 @@ public class ReservationService implements IReservationService {
 		return reservationMapper.toDto(reservationDao.getAllReservations());
 	}
 
+	
 	@Override
 	public ReservationDto getReservationById(long id) {
 		return reservationMapper.toDto(reservationDao.get(id));

@@ -57,7 +57,7 @@
             
             <div class="mb-3">
                 <label for="customerName" class="form-label">Customer Name:</label>
-                <input type="text" id="customerName" name="customerName" class="form-control" value="${reservation != null ? reservation.customerName : ''}" required>
+                <input type="text" id="customerName" name="customerName" class="form-control" value="${reservation != null ? reservation.customerNameDto : ''}" required>
             </div>
             
             <div class="mb-3">
@@ -67,12 +67,12 @@
 
             <div class="mb-3">
                 <label for="phoneNumber" class="form-label">Phone Number:</label>
-                <input type="text" id="phoneNumber" name="phoneNumber" class="form-control" value="${reservation != null ? reservation.phoneNumber : ''}">
+                <input type="text" id="phoneNumber" name="phoneNumber" class="form-control" value="${reservation != null ? reservation.phoneNumberDto : ''}">
             </div>
             
             <div class="mb-3">
                 <label for="email" class="form-label">Email:</label>
-                <input type="email" id="email" name="email" class="form-control" value="${reservation != null ? reservation.email : ''}">
+                <input type="email" id="email" name="email" class="form-control" value="${reservation != null ? reservation.emailDto : ''}">
             </div>
             
             <div class="mb-3">
