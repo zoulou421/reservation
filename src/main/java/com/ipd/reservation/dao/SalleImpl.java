@@ -3,13 +3,25 @@ package com.ipd.reservation.dao;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
+import com.ipd.reservation.entities.Reservation;
 import com.ipd.reservation.entities.Salle;
 import com.ipd.reservation.entities.Seance;
 import com.ipd.reservation.util.HibernateUtil;
 
 import java.util.List;
 
+import javax.persistence.EntityManager;
+
 public class SalleImpl extends RepositoryImpl<Salle> implements ISalle {
+	
+	
+	private final EntityManager entityManager;
+
+    // Constructor accepting EntityManager
+    public SalleImpl(EntityManager entityManager) {
+        this.entityManager = entityManager;
+    }
+	
 
     @Override
     public boolean isFull() {
@@ -104,4 +116,22 @@ public class SalleImpl extends RepositoryImpl<Salle> implements ISalle {
             return session.get(Salle.class, 1);  // Replace with actual logic to fetch the Salle
         }
     }
+
+
+	@Override
+	public boolean deletion(long id) {
+		return delete(id, new Salle());// assuming list works with session
+	}
+
+
+	@Override
+	public List<Salle> getAllSalle() {
+		return list(new Salle()); // assuming list works with session
+	}
+
+
+	@Override
+	public Salle getSalleById(long id) {
+		return get(id, new Salle());
+	}
 }

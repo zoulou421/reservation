@@ -11,4 +11,5 @@ public interface Repository <T> {
 	public T get(long id,T t);
 	
 	
+	
 }

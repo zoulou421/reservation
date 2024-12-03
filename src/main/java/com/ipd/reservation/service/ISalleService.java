@@ -2,7 +2,9 @@ package com.ipd.reservation.service;
 
 import java.util.List;
 
+import com.ipd.reservation.dto.SalleDto;
 import com.ipd.reservation.dto.SeanceDto;
+import com.ipd.reservation.entities.Salle;
 
 public interface ISalleService {
 	 public boolean isFull();
@@ -14,4 +16,10 @@ public interface ISalleService {
 	 public String getFormattedInfo();
 	 public int countSeances();
 	 public boolean hasSeances();
+	 
+	public boolean saveSalle(SalleDto salleDto);
+	public boolean deleteSalle(long id);
+	public boolean updateSalle(SalleDto salleDto);
+	public List<SalleDto> listSalle();
+	public SalleDto getSalleById(long id);
 }
